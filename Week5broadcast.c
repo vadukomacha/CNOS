@@ -5,15 +5,18 @@ int n;
 
 void broadcast(int root);
 
-int main() {
+int main()
+{
     int i, j, root;
 
     printf("Enter number of nodes: ");
     scanf("%d", &n);
 
     printf("Enter adjacency matrix:\n");
-    for(i = 1; i <= n; i++) {
-        for(j = 1; j <= n; j++) {
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= n; j++)
+        {
             scanf("%d", &a[i][j]);
         }
     }
@@ -26,7 +29,8 @@ int main() {
     return 0;
 }
 
-void broadcast(int root) {
+void broadcast(int root)
+{
     int front = 0, rear = 0, i;
 
     queue[rear++] = root;
@@ -34,11 +38,14 @@ void broadcast(int root) {
 
     printf("\nBroadcast Tree Edges:\n");
 
-    while(front < rear) {
+    while (front < rear)
+    {
         int node = queue[front++];
 
-        for(i = 1; i <= n; i++) {
-            if(a[node][i] == 1 && visited[i] == 0) {
+        for (i = 1; i <= n; i++)
+        {
+            if (a[node][i] == 1 && visited[i] == 0)
+            {
                 printf("%d -> %d\n", node, i);
                 queue[rear++] = i;
                 visited[i] = 1;
