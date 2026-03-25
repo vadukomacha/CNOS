@@ -1,55 +1,47 @@
-    #include &lt; stdio.h & gt;
-    #include &lt; stdlib.h & gt;
-    struct Node
-    {
-        int block;
-        struct Node *next;
-    };
-    int main()
-    {
-        int n, size, i;
-        int free_blocks[100];
-        for (i = 0; i & lt; 100; i++)
-            free_blocks[i] = 0;
-        printf(&quot; Enter number of files : &quot;);
-        scanf(&quot; % d & quot;, &amp; n);
-        for (i = 0; i & lt; n; i++)
-        {
-            printf(&quot; Enter size of file % d : &quot;, i + 1);
-            scanf(&quot; % d & quot;, &amp; size);
-            struct Node *head = NULL, *temp, *newnode;
-            int j, count = 0;
-            for (j = 0; j & lt; 100 & amp; &amp; count & lt; size; j++)
-            {
-                if (free_blocks[j] == 0)
-                {
+#include <stdio.h> 
+#include <stdlib.h> 
+struct Node 
+{
+int block; 
+struct Node *next; 
+};
+int main() 
+{
+int n, size, i; 
+int free_blocks[100]; 
+for(i=0;i<100;i++) free_blocks[i]=0; 
+printf("Enter number of files: ");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+printf("Enter size of file %d: ", i+1);
+scanf("%d",&size);
+struct Node *head=NULL, *temp, *newnode;
+int j, count=0;
+for(j=0;j<100 && count<size;j++)
+{
+if(free_blocks[j]==0) // if block is free
+{
 
-                    newnode = (struct Node *)malloc(sizeof(struct Node));
-                    newnode - &gt;
-                    block = j;
-                    newnode - &gt;
-                    next = NULL;
-                    if (head == NULL)
-                        head = temp = newnode;
-                    else
-                    {
-                        temp - &gt;
-                        next = newnode;
-                        temp = newnode;
-                    }
-                    free_blocks[j] = 1;
-                    count++;
-                }
-            }
-            printf(&quot; File % d allocated blocks : &quot;, i + 1);
-            temp = head;
-            while (temp != NULL)
-            {
-                printf(&quot; % d & quot;, temp - &gt; block);
-                temp = temp - &gt;
-                next;
-            }
-            printf(&quot;\n & quot;);
-        }
-        return 0;
-    }
+newnode=(struct Node*)malloc(sizeof(struct Node)); 
+newnode->block=j; 
+newnode->next=NULL; 
+if(head==NULL) head=temp=newnode; 
+else { 
+temp->next=newnode; temp=newnode; 
+}
+free_blocks[j]=1; 
+count++;
+}
+}
+printf("File %d allocated blocks: ", i+1);
+temp=head;
+while(temp!=NULL)
+{
+printf("%d ", temp->block); 
+temp=temp->next; 
+}
+printf("\n");
+}
+return 0;
+}
