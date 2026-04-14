@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
     int bucket_size, leak_rate, n_packets, i;
     int bucket_storage = 0;
     int incoming_packet_size;
@@ -18,20 +19,25 @@ int main() {
     printf("\nTime | Incoming | Accepted | Dropped | Bucket Status\n");
     printf("-----------------------------------------------------\n");
 
-    for (i = 1; i <= n_packets; i++) {
+    for (i = 1; i <= n_packets; i++)
+    {
         printf("Enter size of packet %d: ", i);
         scanf("%d", &incoming_packet_size);
 
         int accepted = 0, dropped = 0;
 
         // Check if packet fits in bucket
-        if (incoming_packet_size <= (bucket_size - bucket_storage)) {
+        if (incoming_packet_size <= (bucket_size - bucket_storage))
+        {
             bucket_storage += incoming_packet_size;
             accepted = incoming_packet_size;
             dropped = 0;
-        } else {
+        }
+        else
+        {
             accepted = bucket_size - bucket_storage;
-            if (accepted < 0) accepted = 0;
+            if (accepted < 0)
+                accepted = 0;
 
             dropped = incoming_packet_size - accepted;
             bucket_storage = bucket_size; // overflow
@@ -42,9 +48,12 @@ int main() {
                bucket_storage, bucket_size);
 
         // Leak process
-        if (bucket_storage >= leak_rate) {
+        if (bucket_storage >= leak_rate)
+        {
             bucket_storage -= leak_rate;
-        } else {
+        }
+        else
+        {
             bucket_storage = 0;
         }
 

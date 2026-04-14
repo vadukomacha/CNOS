@@ -1,5 +1,5 @@
 #include <stdio.h>
- int main()
+int main()
 {
     int n, start, size, i;
     printf("Enter number of files: ");

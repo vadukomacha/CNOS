@@ -3,7 +3,7 @@ int main()
 {
     int frames[10], pages[20], time[10];
     int frame_count, page_count;
-    int i, j, pos, faults = 0;
+    int i, j, faults = 0;
     int found, counter = 0, least;
     printf("Enter number of frames: ");
     scanf("%d", &frame_count);
@@ -43,6 +43,7 @@ int main()
             time[least] = counter;
             faults++;
         }
-        printf("Total Page Faults = %d\n", faults);
-        return 0;
     }
+    printf("Total Page Faults = %d\n", faults);
+    return 0;
+}

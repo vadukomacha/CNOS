@@ -3,7 +3,8 @@
 #include <string.h>
 #include <sys/types.h>
 
-int main() {
+int main()
+{
     int fd[2];
     pid_t pid;
 
@@ -16,7 +17,8 @@ int main() {
     // Create process
     pid = fork();
 
-    if (pid > 0) {
+    if (pid > 0)
+    {
         // Parent process
         close(fd[0]); // Close read end
 
@@ -24,7 +26,8 @@ int main() {
 
         close(fd[1]); // Close write end
     }
-    else if (pid == 0) {
+    else if (pid == 0)
+    {
         // Child process
         close(fd[1]); // Close write end
 

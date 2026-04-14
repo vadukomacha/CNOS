@@ -21,9 +21,8 @@ int main()
         int j, count = 0;
         for (j = 0; j < 100 && count < size; j++)
         {
-            if (free_blocks[j] == 0) // if block is free
+            if (free_blocks[j] == 0)
             {
-
                 newnode = (struct Node *)malloc(sizeof(struct Node));
                 newnode->block = j;
                 newnode->next = NULL;
